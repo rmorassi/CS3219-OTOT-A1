@@ -1,16 +1,14 @@
-FROM node:16
+FROM node:latest
 
 # Create app directory
-WORKDIR /home/roberto/NUS/SEPP/OTOT/A1/app
+WORKDIR /app
 
 # Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-COPY package*.json ./
-
+COPY package.json package-lock.json ./
 RUN npm install
 
-# Bundle app source
-COPY . .
+# Copy app source
+COPY . ./
 
 # Expose port
 EXPOSE 8080
